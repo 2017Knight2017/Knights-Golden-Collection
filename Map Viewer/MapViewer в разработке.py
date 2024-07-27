@@ -21,10 +21,10 @@ def which_location_student_is_in(pos:tuple[float, float]) -> str:
 	confession_tree = is_in_rectangle(pos, (4396, 5832), (4802, 6194))
 	east_fountain = is_in_rectangle(pos, (3234, 1972), (3596, 1718))
 	west_fountain = is_in_rectangle(pos, (5602, 1714), (6014, 1978))
-	east_japanese_garden = is_in_rectangle(pos, (5890, 3440), (5646, 3726))
-	east_japanese_garden_inside = is_in_rectangle(pos, (5914, 3916), (6444, 3258))
 	west_japanese_garden = is_in_rectangle(pos, (3574, 3720), (3372, 3330))
 	west_japanese_garden_inside = is_in_rectangle(pos, (3310, 3300), (2760, 3892))
+	east_japanese_garden = is_in_rectangle(pos, (5890, 3440), (5646, 3726))
+	east_japanese_garden_inside = is_in_rectangle(pos, (5914, 3916), (6444, 3258))
 	inner_garden = is_in_rectangle(pos, (7748, 1810), (7930, 1632))
 	inner_garden_east = is_in_rectangle(pos, (7656, 1554), (7238, 1862))
 	inner_garden_west = is_in_rectangle(pos, (7976, 1564), (8322, 1844))
@@ -125,13 +125,15 @@ def which_location_student_is_in(pos:tuple[float, float]) -> str:
 	near_audiovisual_room = is_in_rectangle(pos, (404, 2020), (598, 2536))
 	near_computer_class = is_in_rectangle(pos, (404, 2020), (594, 1500))
 	near_announcement_room = is_in_rectangle(pos, (412, 964), (594, 1500))
+	near_labyrinth = is_in_rectangle(pos, (5530, 2548), (5430, 2204))
 	between_men_shower_and_pool = is_in_rectangle(pos, (3232, 4446), (4350, 4284))
 	barrel = is_in_rectangle(pos, (3236, 4264), (3712, 4064))
 	between_women_shower_and_gym = is_in_rectangle(pos, (5678, 4448), (4754, 4260))
+	near_gardening_club = is_in_rectangle(pos, (3806, 1994), (3602, 2762))
 	near_class_11 = is_in_rectangle(pos, (7529, 958), (7008, 664))
 	near_class_12 = is_in_rectangle(pos, (8143, 970), (8691, 667))
 	near_class_21 = is_in_rectangle(pos, (6887, 4013), (7656, 3730))
-	near_class_22 = is_in_rectangle(pos, (8722, 4005), (8012, 3722))
+	near_class_22 = is_in_rectangle(pos, (8722, 4005), (8012, 3710))
 	near_class_31 = is_in_rectangle(pos, (1105, 975), (500, 678))
 	near_class_32 = is_in_rectangle(pos, (1646, 967), (2245, 681))
 	near_toilets_west_1 = is_in_rectangle(pos, (8623, 596), (8802, 25))
@@ -155,7 +157,6 @@ def which_location_student_is_in(pos:tuple[float, float]) -> str:
 	women_shower = is_in_rectangle(pos, (5475, 4259), (4757, 4047))
 	men_shower = is_in_rectangle(pos, (3753, 4248), (4457, 4047))
 	cafeteria = is_in_rectangle(pos, (8004, 3334), (7668, 3942))
-	near_gardening_club = is_in_rectangle(pos, (3806, 1994), (3602, 2762))
 
 
 	if labyrinth: return "у лабиринта"
@@ -266,6 +267,7 @@ def which_location_student_is_in(pos:tuple[float, float]) -> str:
 	elif near_audiovisual_room: return "около аудиовизуальной комнаты"
 	elif near_computer_class: return "около компьютерного класса"
 	elif near_announcement_room: return "около кабинета объявлений"
+	elif near_labyrinth: return "около лабиринта"
 	elif between_men_shower_and_pool: return "между мужской душевой и бассейном"
 	elif barrel: return "около горящей бочки"
 	elif between_women_shower_and_gym: return "между женской душевой и спортзалом"
