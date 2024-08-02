@@ -3,6 +3,12 @@ import json
 from itertools import chain
 from copy import deepcopy
 
+def time_sortkey(a: list[str, list]) -> int:
+	score = int(a[0][:4].replace(":", ""))
+	if a[0][-2] == "P":
+		score += 1000
+	return score
+
 positions = {  
 	"у лабиринта": (5625, 2376),
 	"под деревом признаний": (4599, 6013),
@@ -183,7 +189,7 @@ with open("output.json", "w") as output:
 		else:
 			print(f'Внимание, указанная вами локация "{place}" отсутствует в списке. Убедитесь, что вы не допустили опечатку.\nСписок локаций находится в файле locations.txt')
 			start["markers"][id]["position"] = (6680, 5308)
-		start["markers"][id]["popup"]["description"] = "\n".join(chain(*[[time, *people] for time, people in markers[place].items()]))
+		start["markers"][id]["popup"]["description"] = "\n".join(chain(*sorted([[time, *people] for time, people in markers[place].items()], key=time_sortkey)))
 		id += 1
 	json.dump(start, output, indent=4)
 input("Готово.")
